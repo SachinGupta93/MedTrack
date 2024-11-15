@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Linkedin, Github } from 'lucide-react';
 import Manoj from "../assets/Manoj.png";
-import Karthik from "../assets/karthik.jpg";
+import Karthik from "../assets/Karthik.jpg";
 import Ganesh from "../assets/Ganesh.png";
 import Vikky from "../assets/Vikky.png";
 import Bodhi from "../assets/Bodhi.jpg";
