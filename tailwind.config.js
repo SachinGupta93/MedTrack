@@ -4,26 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: {
-          blue: '#4A90E2',
-          green: '#2ECC71',
-        },
-        accent: {
-          purple: '#9B59B6',
-        },
-      },
-      animation: {
-        float: 'float 6s ease-in-out infinite',
-        pulse: 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-      },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        primary: '#000000',
+        secondary: '#0066FF',
+        accent: '#F5F5F7',
+        neutral: {
+          50: '#F9FAFB',
+          100: '#F3F4F6',
+          200: '#E5E7EB',
+          300: '#D1D5DB',
+          400: '#9CA3AF',
+          500: '#6B7280',
+          600: '#4B5563',
+          700: '#374151',
+          800: '#1F2937',
+          900: '#111827',
+        }
       },
       fontFamily: {
         sans: [
@@ -37,24 +32,26 @@ export default {
           'sans-serif',
         ],
       },
-      boxShadow: {
-        'inner-lg': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
+      animation: {
+        float: 'float 6s ease-in-out infinite',
+        'fade-up': 'fadeUp 0.5s ease-out',
+        'fade-down': 'fadeDown 0.5s ease-out',
+      },
+      keyframes: {
+        float: {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
+        },
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        fadeDown: {
+          '0%': { opacity: '0', transform: 'translateY(-20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
       },
     },
   },
-  safelist: [
-    'bg-blue-100',
-    'text-blue-500',
-    'bg-green-100',
-    'text-green-500',
-    'bg-purple-100',
-    'text-purple-500',
-    'bg-red-100',
-    'text-red-500',
-    'bg-yellow-100',
-    'text-yellow-500',
-    'bg-indigo-100',
-    'text-indigo-500',
-  ],
   plugins: [],
 };

@@ -21,7 +21,7 @@ const team: TeamMemberData[] = [
   {
     name: 'Tiwari Naga Ganesh Prasad',
     role: 'Project Lead',
-    image: Ganesh, // Replace with your image URL
+    image: Ganesh,
     bio: 'Steering the ship and making sure it doesn\'t sink!',
     linkedin: "https://www.linkedin.com/in/tiwari-naga-ganesh-prasad-18b885191/",
     github: "https://github.com/Ganesh540-crypto",
@@ -29,7 +29,7 @@ const team: TeamMemberData[] = [
   {
     name: 'MVSV Sai Karthik',
     role: 'Product Manager',
-    image: Karthik, // Replace with your image URL
+    image: Karthik,
     bio: 'Keeping the chaos organized and users happy.',
     linkedin: 'https://www.linkedin.com/in/m-v-s-v-sai-karthik-5959b82a5/',
     github: 'https://github.com/saikarthik2204',
@@ -37,7 +37,7 @@ const team: TeamMemberData[] = [
   {
     name: 'Surampudi Adarsh',
     role: 'Technical Lead',
-    image: Adarsh, // Replace with your image URL
+    image: Adarsh,
     bio: 'Turning caffeine into code, one bug at a time.',
     linkedin: 'https://www.linkedin.com/in/surampudi-adarsh-54226b25b1',
     github: 'https://github.com/Adarsh1457',
@@ -45,7 +45,7 @@ const team: TeamMemberData[] = [
   {
     name: 'M Raj Mehathah',
     role: 'Marketing & Outreach Lead',
-    image: Vikky, // Replace with your image URL
+    image: Vikky,
     bio: 'Crafting stories that make everyone say "Wow!"',
     linkedin: 'https://www.linkedin.com/in/rajmehathah/',
     github: 'https://github.com/Rajmehathah',
@@ -53,7 +53,7 @@ const team: TeamMemberData[] = [
   {
     name: 'Surya Bodhi Sathwa',
     role: 'UI/UX Designer',
-    image: Bodhi, // Replace with your image URL
+    image: Bodhi,
     bio: 'Making it pretty and easy, one pixel at a time.',
     linkedin: 'http://www.linkedin.com/in/bodhisathwa',
     github: 'https://github.com/bodhisathwa',
@@ -61,7 +61,7 @@ const team: TeamMemberData[] = [
   {
     name: 'M Manoj Kumar',
     role: 'Operations Coordinator',
-    image: Manoj, // Replace with your image URL
+    image: Manoj,
     bio: 'Keeping the wheels turning behind the scenes.',
     linkedin: 'https://www.linkedin.com/in/manoj-myana-714399297',
     github: 'https://github.com/oliviadavis',
@@ -70,9 +70,8 @@ const team: TeamMemberData[] = [
 
 const Team = () => {
   return (
-    <section id="team" className="py-20 bg-gradient-to-b from-blue-50 to-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Title */}
+    <section id="team" className="py-20 bg-white">
+      <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -80,12 +79,16 @@ const Team = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4">
-            <span className="bg-gradient-to-r from-blue-600 to-green-500 bg-clip-text text-transparent">
-              Meet Our Dream Team
+          <span className="text-sm font-medium text-neutral-600 bg-neutral-100 px-4 py-2 rounded-full">
+            Our Team
+          </span>
+          <h2 className="text-4xl font-bold mt-6 mb-4">
+            Meet the Minds Behind
+            <span className="heading-gradient block">
+              MedTrack
             </span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
             The people making the magic happen.
           </p>
         </motion.div>
@@ -100,13 +103,7 @@ const Team = () => {
   );
 };
 
-interface TeamMemberProps {
-  name: string;
-  role: string;
-  image: string;
-  bio: string;
-  linkedin: string;
-  github: string;
+interface TeamMemberProps extends TeamMemberData {
   index: number;
 }
 
@@ -128,8 +125,8 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       className="relative"
     >
       <motion.div
-        whileHover={{ y: -5, scale: 1.05 }}
-        className="glass-card p-6 text-center shadow-lg rounded-xl bg-white hover:shadow-2xl transition-all duration-300"
+        whileHover={{ y: -5 }}
+        className="card p-6 text-center group"
       >
         <motion.div
           whileHover={{ scale: 1.1 }}
@@ -138,43 +135,44 @@ const TeamMember: React.FC<TeamMemberProps> = ({
           <img
             src={image}
             alt={`Profile of ${name}`}
-            className="w-full h-full object-cover rounded-full"
+            className="w-full h-full object-cover rounded-full ring-4 ring-neutral-100 group-hover:ring-secondary transition-colors duration-300"
           />
         </motion.div>
 
-        <h3 className="text-xl font-semibold mb-2">{name}</h3>
-        <p className="text-blue-600 font-medium mb-4">{role}</p>
+        <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors duration-300">
+          {name}
+        </h3>
+        <p className="text-secondary font-medium mb-4">{role}</p>
 
-        <div className="flex justify-center space-x-4">
+        <div className="flex justify-center space-x-4 mb-4">
           <SocialIcon icon={Linkedin} link={linkedin} />
           <SocialIcon icon={Github} link={github} />
         </div>
 
-        {/* Updated Bio Section */}
         <motion.div
           initial={{ opacity: 0, height: 0 }}
           whileHover={{ opacity: 1, height: 'auto' }}
           transition={{ duration: 0.3 }}
-          className="bg-gray-100 p-4 rounded-lg mt-4 overflow-hidden"
+          className="bg-neutral-50 p-4 rounded-lg mt-4 overflow-hidden"
         >
-          <p className="text-gray-700 break-words">{bio}</p>
+          <p className="text-neutral-600 break-words">{bio}</p>
         </motion.div>
       </motion.div>
     </motion.div>
   );
 };
 
-const SocialIcon: React.FC<{ icon: React.ComponentType<{ className?: string }>; link: string }> = ({
-  icon: Icon,
-  link,
-}) => (
+const SocialIcon: React.FC<{ 
+  icon: React.ComponentType<{ className?: string }>;
+  link: string;
+}> = ({ icon: Icon, link }) => (
   <motion.a
     href={link}
     target="_blank"
     rel="noopener noreferrer"
     whileHover={{ scale: 1.2 }}
     whileTap={{ scale: 0.9 }}
-    className="text-gray-400 hover:text-blue-600 transition-colors"
+    className="text-neutral-400 hover:text-secondary transition-colors"
   >
     <Icon className="w-5 h-5" />
   </motion.a>
