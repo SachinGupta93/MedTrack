@@ -6,7 +6,7 @@ import Karthik from "../assets/Karthik.jpg";
 import Ganesh from "../assets/Ganesh.png";
 import Vikky from "../assets/Vikky.png";
 import Bodhi from "../assets/Bodhi.jpg";
-import Adarsh from "../assets/Adarsh.png";
+import Nagaraju from "../assets/Nagaraju.jpg";
 
 interface TeamMemberData {
   name: string;
@@ -35,12 +35,12 @@ const team: TeamMemberData[] = [
     github: 'https://github.com/saikarthik2204',
   },
   {
-    name: 'Surampudi Adarsh',
+    name: 'Surya Bodhi Sathwa',
     role: 'Technical Lead',
-    image: Adarsh,
+    image: Bodhi,
     bio: 'Turning caffeine into code, one bug at a time.',
-    linkedin: 'https://www.linkedin.com/in/surampudi-adarsh-54226b25b1',
-    github: 'https://github.com/Adarsh1457',
+    linkedin: 'https://www.linkedin.com/in/bodhisathwa',
+    github: 'https://github.com/bodhisathwa',
   },
   {
     name: 'M Raj Mehathah',
@@ -51,11 +51,11 @@ const team: TeamMemberData[] = [
     github: 'https://github.com/Rajmehathah',
   },
   {
-    name: 'Surya Bodhi Sathwa',
+    name: 'Nagaraju Goud Goda',
     role: 'UI/UX Designer',
-    image: Bodhi,
+    image: Nagaraju,
     bio: 'Making it pretty and easy, one pixel at a time.',
-    linkedin: 'http://www.linkedin.com/in/bodhisathwa',
+    linkedin: 'https://www.linkedin.com/in/godha-nagaraju-b86aab2a0',
     github: 'https://github.com/bodhisathwa',
   },
   {
@@ -64,7 +64,7 @@ const team: TeamMemberData[] = [
     image: Manoj,
     bio: 'Keeping the wheels turning behind the scenes.',
     linkedin: 'https://www.linkedin.com/in/manoj-myana-714399297',
-    github: 'https://github.com/oliviadavis',
+    github: 'https://github.com/Manoj-Myana',
   },
 ];
 
