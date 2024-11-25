@@ -115,7 +115,7 @@ const ScreenshotCard: React.FC<ScreenshotCardProps> = ({
               </div>
               <div className="flex-1 text-center">
                 <div className="bg-white/80 mx-auto w-1/2 h-5 rounded text-xs flex items-center justify-center text-neutral-400">
-                  medtrack.app
+                  medtrack.co.in
                 </div>
               </div>
             </div>
