@@ -5,7 +5,7 @@ import Manoj from "../assets/Manoj.png";
 import Karthik from "../assets/Karthik.jpg";
 import Ganesh from "../assets/Ganesh.png";
 import Vikky from "../assets/Vikky.png";
-import Bodhi from "../assets/Bodhi.jpg";
+import Adarsh from "../assets/Adarsh.png";
 import Nagaraju from "../assets/Nagaraju.jpg";
 
 interface TeamMemberData {
@@ -20,7 +20,7 @@ interface TeamMemberData {
 const team: TeamMemberData[] = [
   {
     name: 'Tiwari Naga Ganesh Prasad',
-    role: 'Project Lead',
+    role: 'Founder & CEO',
     image: Ganesh,
     bio: 'Steering the ship and making sure it doesn\'t sink!',
     linkedin: "https://www.linkedin.com/in/tiwari-naga-ganesh-prasad-18b885191/",
@@ -28,23 +28,23 @@ const team: TeamMemberData[] = [
   },
   {
     name: 'MVSV Sai Karthik',
-    role: 'Product Manager',
+    role: 'Outreach Manager',
     image: Karthik,
     bio: 'Keeping the chaos organized and users happy.',
     linkedin: 'https://www.linkedin.com/in/m-v-s-v-sai-karthik-5959b82a5/',
     github: 'https://github.com/saikarthik2204',
   },
   {
-    name: 'Surya Bodhi Sathwa',
+    name: 'Surampudi Adarsh',
     role: 'Technical Lead',
-    image: Bodhi,
+    image: Adarsh,
     bio: 'Turning caffeine into code, one bug at a time.',
-    linkedin: 'https://www.linkedin.com/in/bodhisathwa',
-    github: 'https://github.com/bodhisathwa',
+    linkedin: 'https://www.linkedin.com/in/surampudi-adarsh-54226b25b',
+    github: 'https://github.com/Adarsh1457',
   },
   {
     name: 'M Raj Mehathah',
-    role: 'Marketing & Outreach Lead',
+    role: 'Marketing Lead',
     image: Vikky,
     bio: 'Crafting stories that make everyone say "Wow!"',
     linkedin: 'https://www.linkedin.com/in/rajmehathah/',
@@ -52,19 +52,11 @@ const team: TeamMemberData[] = [
   },
   {
     name: 'Nagaraju Goud Goda',
-    role: 'UI/UX Designer',
+    role: 'Operations Lead',
     image: Nagaraju,
     bio: 'Making it pretty and easy, one pixel at a time.',
     linkedin: 'https://www.linkedin.com/in/godha-nagaraju-b86aab2a0',
     github: 'https://github.com/bodhisathwa',
-  },
-  {
-    name: 'M Manoj Kumar',
-    role: 'Operations Coordinator',
-    image: Manoj,
-    bio: 'Keeping the wheels turning behind the scenes.',
-    linkedin: 'https://www.linkedin.com/in/manoj-myana-714399297',
-    github: 'https://github.com/Manoj-Myana',
   },
 ];
 
