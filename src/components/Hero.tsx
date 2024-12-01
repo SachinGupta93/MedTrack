@@ -25,10 +25,10 @@ const Hero = () => {
   return (
     <section 
       id="hero"
-      className="min-h-screen pt-20 relative overflow-hidden bg-accent"
+      className="min-h-screen pt-20 pb-12 sm:pb-24 relative overflow-hidden bg-accent"
       onMouseMove={handleMouseMove}
     >
-      <div className="container-custom h-full py-16 md:py-24">
+      <div className="container-custom h-full py-8 md:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -80,10 +80,22 @@ const Hero = () => {
               </motion.button>
             </div>
 
-            <div className="pt-8 grid grid-cols-3 gap-8">
-              <Stat number="Q2 2025" label="Launch Date" />
-              <Stat number="Coming Soon" label="Beta Access" />
-              <Stat number="In Progress" label="Development" />
+            <div className="pt-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-8 sm:divide-x divide-gray-200">
+              <Stat 
+                number="Q2 2025" 
+                label="Launch Date" 
+                className="mb-12 sm:mb-0 sm:pr-8"
+              />
+              <Stat 
+                number="Coming Soon" 
+                label="Beta Access" 
+                className="mb-12 sm:mb-0 sm:px-8"
+              />
+              <Stat 
+                number="In Progress" 
+                label="Development" 
+                className="sm:pl-8"
+              />
             </div>
           </motion.div>
 
@@ -123,8 +135,8 @@ const Hero = () => {
   );
 };
 
-const Stat = ({ number, label }: { number: string; label: string }) => (
-  <div className="text-center">
+const Stat = ({ number, label, className }: { number: string; label: string; className?: string }) => (
+  <div className={`text-center ${className}`}>
     <div className="text-2xl font-bold text-primary">{number}</div>
     <div className="text-sm text-neutral-600 mt-1">{label}</div>
   </div>
