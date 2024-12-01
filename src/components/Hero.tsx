@@ -87,28 +87,31 @@ const Hero = () => {
             </div>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="relative hidden lg:block"
-          >
-            <div className="relative w-full aspect-square">
-              <motion.div
-                className="absolute inset-0"
-                style={{
-                  rotateX: useSpring(useTransform(mouseY, [0, 600], [5, -5])),
-                  rotateY: useSpring(useTransform(mouseX, [0, 800], [-5, 5])),
-                }}
-              >
-                <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
-                  alt="MedTrack App Interface"
-                  className="rounded-3xl shadow-2xl"
-                />
-              </motion.div>
-            </div>
-          </motion.div>
+          {/* Desktop Image Section */}
+          <div className="hidden lg:block">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8 }}
+              className="relative"
+            >
+              <div className="relative w-full aspect-square">
+                <motion.div
+                  className="absolute inset-0"
+                  style={{
+                    rotateX: useSpring(useTransform(mouseY, [0, 600], [5, -5])),
+                    rotateY: useSpring(useTransform(mouseX, [0, 800], [-5, 5])),
+                  }}
+                >
+                  <img
+                    src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"
+                    alt="MedTrack App Interface"
+                    className="rounded-3xl shadow-2xl"
+                  />
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </div>
 

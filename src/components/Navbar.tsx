@@ -14,22 +14,25 @@ const Navbar = () => {
   }, [scrollY]);
 
   const handleScroll = (id: string) => {
-    setIsMenuOpen(false);
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      setIsMenuOpen(false);
+      setTimeout(() => {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }, 300);
     }
   };
-
   return (
-    <motion.nav
-      className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'glass-effect shadow-lg' : 'bg-transparent'
-      }`}
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.5 }}
-    >
+  <motion.nav
+    className={`fixed w-full z-[100] transition-all duration-300 ${
+      isScrolled 
+        ? 'md:bg-white/80 md:backdrop-blur-sm bg-white shadow-lg' 
+        : 'bg-transparent'
+    }`}
+    initial={{ y: -100 }}
+    animate={{ y: 0 }}
+    transition={{ duration: 0.5 }}
+  >
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
           <motion.div 
@@ -81,7 +84,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden glass-effect border-t border-neutral-200"
+            className="md:hidden glass-effect border-t border-neutral-200 fixed w-full top-20 left-0"
           >
             <div className="container-custom py-4 space-y-4">
               <MobileNavLink onClick={() => handleScroll('features')}>Features</MobileNavLink>

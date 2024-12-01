@@ -122,7 +122,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
       >
         <motion.div
           whileHover={{ scale: 1.1 }}
-          className="relative w-32 h-32 mx-auto mb-6"
+          className="relative w-36 h-36 md:w-32 md:h-32 mx-auto mb-6"
         >
           <img
             src={image}
@@ -145,7 +145,7 @@ const TeamMember: React.FC<TeamMemberProps> = ({
           initial={{ opacity: 0, height: 0 }}
           whileHover={{ opacity: 1, height: 'auto' }}
           transition={{ duration: 0.3 }}
-          className="bg-neutral-50 p-4 rounded-lg mt-4 overflow-hidden"
+          className="hidden md:block bg-neutral-50 p-4 rounded-lg mt-4 overflow-hidden"
         >
           <p className="text-neutral-600 break-words">{bio}</p>
         </motion.div>
@@ -153,7 +153,6 @@ const TeamMember: React.FC<TeamMemberProps> = ({
     </motion.div>
   );
 };
-
 const SocialIcon: React.FC<{ 
   icon: React.ComponentType<{ className?: string }>;
   link: string;
