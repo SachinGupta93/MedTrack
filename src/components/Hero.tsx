@@ -22,20 +22,21 @@ const Hero = () => {
   const openGitHub = () => {
     window.open('https://github.com/Ganesh540-crypto/MedTrack', '_blank');
   };
-
   return (
     <section 
       id="hero"
-      className="min-h-screen pt-20 relative overflow-hidden bg-accent"
+
+      className="h-auto md:min-h-screen pt-20 pb-8 md:py-20 relative overflow-hidden bg-accent"
       onMouseMove={handleMouseMove}
     >
-      <div className="container-custom h-full py-16 md:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
+
+      <div className="container-custom pt-8 pb-4 md:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-start md:items-center">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
-            className="space-y-8 relative z-10"
+            className="space-y-4 md:space-y-8 relative z-10"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -56,7 +57,7 @@ const Hero = () => {
               </span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-neutral-600 max-w-lg leading-relaxed text-balance">
+            <p className="text-[1.3rem] sm:text-xl text-neutral-600 max-w-lg leading-relaxed text-balance mb-8">
               Transform your medication routine with MedTrack. Intelligent reminders, 
               seamless tracking, and peace of mind in one elegant solution.
             </p>
