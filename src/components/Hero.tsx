@@ -25,10 +25,10 @@ const Hero = () => {
   return (
     <section 
       id="hero"
-      className="min-h-screen pt-20 pb-12 sm:pb-24 relative overflow-hidden bg-accent"
+      className="min-h-screen pt-20 relative overflow-hidden bg-accent"
       onMouseMove={handleMouseMove}
     >
-      <div className="container-custom h-full py-8 md:py-16">
+      <div className="container-custom h-full py-12 md:py-20">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -80,22 +80,10 @@ const Hero = () => {
               </motion.button>
             </div>
 
-            <div className="pt-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-8 sm:divide-x divide-gray-200">
-              <Stat 
-                number="Q2 2025" 
-                label="Launch Date" 
-                className="mb-12 sm:mb-0 sm:pr-8"
-              />
-              <Stat 
-                number="Coming Soon" 
-                label="Beta Access" 
-                className="mb-12 sm:mb-0 sm:px-8"
-              />
-              <Stat 
-                number="In Progress" 
-                label="Development" 
-                className="sm:pl-8"
-              />
+            <div className="pt-8 flex flex-col lg:flex-row gap-6 lg:gap-0 justify-between items-center">
+              <Stat number="Q2 2025" label="Launch Date" />
+              <Stat number="Coming Soon" label="Beta Access" />
+              <Stat number="In Progress" label="Development" isLast />
             </div>
           </motion.div>
 
@@ -135,11 +123,25 @@ const Hero = () => {
   );
 };
 
-const Stat = ({ number, label, className }: { number: string; label: string; className?: string }) => (
-  <div className={`text-center ${className}`}>
-    <div className="text-2xl font-bold text-primary">{number}</div>
-    <div className="text-sm text-neutral-600 mt-1">{label}</div>
-  </div>
+const Stat = ({ number, label, isLast }: { number: string; label: string; isLast?: boolean }) => (
+  <motion.div 
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5 }}
+    className="w-full lg:flex-1 flex items-center justify-center"
+  >
+    <motion.div 
+      whileHover={{ 
+        scale: 1.05,
+        borderColor: '#6366f1',
+        transition: { duration: 0.2 }
+      }}
+      className="text-center bg-white/80 backdrop-blur-sm rounded-xl p-4 shadow-lg w-full max-w-[280px] lg:w-auto border-2 border-transparent transition-colors duration-200 hover:border-primary/50"
+    >
+      <div className="text-2xl font-bold text-primary whitespace-nowrap">{number}</div>
+      <div className="text-sm text-neutral-600 mt-1 whitespace-nowrap">{label}</div>
+    </motion.div>
+    {!isLast && <div className="hidden lg:block text-neutral-300 text-2xl mx-4">|</div>}
+  </motion.div>
 );
-
 export default Hero;
