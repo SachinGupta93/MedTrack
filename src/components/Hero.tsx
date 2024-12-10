@@ -7,6 +7,7 @@ import PrescriptionScanner from './PrescriptionScanner';
 const Hero = () => {
   // Statsig integration
   const isNewUxEnabled = useGateValue("new_onboarding_ux");
+  console.log('Feature gate status:', isNewUxEnabled);
   const { client } = useStatsigClient();
   
   const mouseX = useMotionValue(0);

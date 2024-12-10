@@ -12,7 +12,7 @@ import Footer from './components/Footer';
 
 function StatsigWrapper() {
   const { client } = useClientAsyncInit('client-qmO9d1ziTV2OtgTHK7W8l7LBIbXAlz2V0w7hmQZugHJ', {
-    userID: 'a-user', // Replace with actual user ID if available
+    userID: '1WvIjnkhDxOBiBoKtrKy6b', // Replace with actual user ID if available
   });
 
   useEffect(() => {
