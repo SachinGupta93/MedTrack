@@ -8,17 +8,6 @@ import Team from './components/Team';
 import Download from './components/Download';
 import Footer from './components/Footer';
 
-declare global {
-  interface Window {
-    plugSDK: {
-      init: (config: any) => void;
-      onEvent: (callback: (payload: any) => void) => void;
-      initSearchAgent: () => void;
-      toggleSearchAgent: () => void;
-    };
-  }
-}
-
 function App() {
   useEffect(() => {
     window.plugSDK.init({
