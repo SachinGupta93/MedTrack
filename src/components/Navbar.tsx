@@ -2,6 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
+// Type declaration for window.plugSDK
+declare global {
+  interface Window {
+    plugSDK: {
+      toggleSearchAgent: () => void;
+    };
+  }
+}
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -22,17 +31,18 @@ const Navbar = () => {
       }, 300);
     }
   };
+
   return (
-  <motion.nav
-    className={`fixed w-full z-[100] transition-all duration-300 ${
-      isScrolled 
-        ? 'md:bg-white/80 md:backdrop-blur-sm bg-white shadow-lg' 
-        : 'bg-transparent'
-    }`}
-    initial={{ y: -100 }}
-    animate={{ y: 0 }}
-    transition={{ duration: 0.5 }}
-  >
+    <motion.nav
+      className={`fixed w-full z-[100] transition-all duration-300 ${
+        isScrolled 
+          ? 'md:bg-white/80 md:backdrop-blur-sm bg-white shadow-lg' 
+          : 'bg-transparent'
+      }`}
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <div className="container-custom">
         <div className="flex justify-between items-center h-20">
           <motion.div 
@@ -51,11 +61,20 @@ const Navbar = () => {
             </span>
           </motion.div>
           
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <NavLink onClick={() => handleScroll('features')}>Features</NavLink>
             <NavLink onClick={() => handleScroll('screenshots')}>App</NavLink>
             <NavLink onClick={() => handleScroll('how-it-works')}>How It Works</NavLink>
             <NavLink onClick={() => handleScroll('team')}>Team</NavLink>
+            <motion.button
+              onClick={() => window.plugSDK.toggleSearchAgent()}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="btn-primary"
+            >
+              Search
+            </motion.button>
             <motion.a
               href="https://getwaitlist.com/waitlist/22253"
               target="_blank"
@@ -68,6 +87,7 @@ const Navbar = () => {
             </motion.a>
           </div>
 
+          {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
@@ -78,6 +98,7 @@ const Navbar = () => {
         </div>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -91,6 +112,16 @@ const Navbar = () => {
               <MobileNavLink onClick={() => handleScroll('screenshots')}>App</MobileNavLink>
               <MobileNavLink onClick={() => handleScroll('how-it-works')}>How It Works</MobileNavLink>
               <MobileNavLink onClick={() => handleScroll('team')}>Team</MobileNavLink>
+              <motion.button
+                onClick={() => {
+                  window.plugSDK.toggleSearchAgent();
+                  setIsMenuOpen(false);
+                }}
+                whileTap={{ scale: 0.95 }}
+                className="block w-full text-center btn-primary"
+              >
+                Search
+              </motion.button>
               <motion.a
                 href="https://getwaitlist.com/waitlist/22253"
                 target="_blank"
