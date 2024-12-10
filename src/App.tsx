@@ -1,4 +1,6 @@
 import React, { useEffect } from 'react';
+import { StatsigProvider, useClientAsyncInit } from '@statsig/react-bindings';
+import { runStatsigAutoCapture } from '@statsig/web-analytics';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Features from './components/Features';
@@ -7,6 +9,24 @@ import HowItWorks from './components/HowItWorks';
 import Team from './components/Team';
 import Download from './components/Download';
 import Footer from './components/Footer';
+
+function StatsigWrapper() {
+  const { client } = useClientAsyncInit('client-qmO9d1ziTV2OtgTHK7W8l7LBIbXAlz2V0w7hmQZugHJ', {
+    userID: 'a-user', // Replace with actual user ID if available
+  });
+
+  useEffect(() => {
+    if (client) {
+      runStatsigAutoCapture(client);
+    }
+  }, [client]);
+
+  return (
+    <StatsigProvider client={client} loadingComponent={<div>Loading...</div>}>
+      <App />
+    </StatsigProvider>
+  );
+}
 
 function App() {
   useEffect(() => {
@@ -37,4 +57,5 @@ function App() {
     </div>
   );
 }
-export default App;
+
+export default StatsigWrapper;

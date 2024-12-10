@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
+import { useStatsigClient } from "@statsig/react-bindings";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const { client } = useStatsigClient();
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
@@ -17,6 +19,13 @@ const Navbar = () => {
     const element = document.getElementById(id);
     if (element) {
       setIsMenuOpen(false);
+      
+      // Log navigation event
+      client?.logEvent("navigation_click", id, {
+        section: id,
+        timestamp: new Date().toISOString()
+      });
+      
       setTimeout(() => {
         element.scrollIntoView({ behavior: 'smooth' });
       }, 300);
