@@ -34,7 +34,7 @@ const Footer = () => {
     try {
       await emailjs.send(
         'service_cf7o19h',
-        'template_kai97do',
+        'template_c7ki6lw',
         {
           from_name: 'Newsletter Subscription',
           from_email: email,
