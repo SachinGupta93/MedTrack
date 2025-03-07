@@ -288,7 +288,7 @@ const Footer = () => {
             {/* Bottom Bar Links */}
             <div className="flex space-x-6 mt-4 md:mt-0">
               <Link 
-                to="/privacy-policy" 
+                to="/privacypolicy" 
                 className="text-neutral-400 hover:text-secondary text-sm transition-colors"
               >
                 Privacy Policy
