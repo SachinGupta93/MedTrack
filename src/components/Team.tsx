@@ -41,7 +41,7 @@ const team: TeamMemberData[] = [
   },
   {
     name: 'M Raj Mehathah',
-    role: 'Sacial Media Manager',
+    role: 'Social Media Manager',
     image: Vikky,
     bio: 'Digital storyteller breaking the internet daily!',
     linkedin: 'https://www.linkedin.com/in/rajmehathah',
