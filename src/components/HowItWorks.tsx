@@ -37,7 +37,7 @@ const HowItWorks = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
           <span className="text-sm font-medium text-neutral-600 bg-neutral-100 px-4 py-2 rounded-full">
@@ -82,7 +82,7 @@ const StepCard: React.FC<StepCardProps> = ({ icon: Icon, title, description, col
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.5, delay: index * 0.2 }}
+      transition={{ duration: 0.8, delay: index * 0.2 }}
       className="relative z-10"
     >
       <motion.div
@@ -91,17 +91,17 @@ const StepCard: React.FC<StepCardProps> = ({ icon: Icon, title, description, col
       >
         <motion.div
           whileHover={{ rotate: 360 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.3 }}
           className={`w-16 h-16 rounded-full bg-${color === 'primary' ? 'neutral' : 'secondary'}-100 
-            flex items-center justify-center mx-auto mb-6 group-hover:bg-${color} transition-colors duration-300`}
+            flex items-center justify-center mx-auto mb-6 group-hover:bg-${color} transition-colors duration-100`}
         >
           <Icon className={`w-8 h-8 text-${color === 'primary' ? 'neutral-600' : 'secondary'} 
-            group-hover:text-white transition-colors duration-300`} />
+            group-hover: transition-colors duration-100`} />
         </motion.div>
         <div className="absolute -top-4 left-4 text-5xl font-bold text-neutral-100">
           {index + 1}
         </div>
-        <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-300">
+        <h3 className="text-xl font-semibold mb-4 group-hover:text-primary transition-colors duration-100">
           {title}
         </h3>
         <p className="text-neutral-600">{description}</p>
