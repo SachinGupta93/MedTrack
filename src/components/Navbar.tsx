@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useScroll } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useStatsigClient } from "@statsig/react-bindings";
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const { client } = useStatsigClient();
+  const navigate = useNavigate();
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
@@ -16,19 +18,27 @@ const Navbar = () => {
   }, [scrollY]);
 
   const handleScroll = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      setIsMenuOpen(false);
-      
-      // Log navigation event
-      client?.logEvent("navigation_click", id, {
-        section: id,
-        timestamp: new Date().toISOString()
-      });
-      
+    setIsMenuOpen(false);
+    
+    // Log navigation event
+    client?.logEvent("navigation_click", id, {
+      section: id,
+      timestamp: new Date().toISOString()
+    });
+    
+    if (window.location.pathname !== '/') {
+      navigate('/');
       setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
-      }, 300);
+      }
     }
   };
 
@@ -48,7 +58,7 @@ const Navbar = () => {
           <motion.div 
             className="flex items-center cursor-pointer"
             whileHover={{ scale: 1.05 }}
-            onClick={() => handleScroll('hero')}
+            onClick={() => navigate('/')}
           >
             <img 
               src="/medtrack-logo.png" 
